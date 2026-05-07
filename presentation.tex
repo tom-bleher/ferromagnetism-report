@@ -1,0 +1,291 @@
+% !TEX program = xelatex
+\documentclass[aspectratio=169]{beamer}
+
+\usetheme{Madrid}
+\setbeamertemplate{footline}{}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{caption}[numbered]
+
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\graphicspath{{media/}}
+\usepackage{booktabs}
+
+\setbeamercolor{takeaway}{fg=black,bg=structure.fg!8}
+
+\newcommand{\mur}{\mu_{\mathrm r}}
+\newcommand{\Tc}{T_{\mathrm c}}
+\newcommand{\Tapp}{T_{1/2}^{\mathrm{app}}}
+\newcommand{\takeaway}[1]{%
+  \vspace{0.1em}
+  \begin{center}
+    \begin{beamercolorbox}[wd=0.94\textwidth,sep=0.35em,center,rounded=true]{takeaway}
+      \textbf{#1}
+    \end{beamercolorbox}
+  \end{center}
+}
+
+\title[Ferromagnetism Lab]{Ferromagnetism and the Curie Transition}
+\subtitle{Hysteresis loops as measurements of material response}
+\author[I. Feldman, T. Bleher]{Itay Feldman \and Tom Bleher}
+\institute[Tel Aviv University]{School of Physics and Astronomy\\Tel Aviv University}
+\date{May 2026}
+\titlegraphic{%
+  \includegraphics[
+    page=1,
+    trim=185 650 185 55,
+    clip,
+    width=0.20\textwidth
+  ]{/Users/tomble/Desktop/personal/data/Gemini/lab_tau-43e8004eb4267093.pdf}%
+}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Two Experiments, One Question}
+  \large
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.48\textwidth}
+      \textbf{Iron toroid}
+      \vspace{0.5em}
+      \begin{itemize}
+        \item Map the peak envelope of $B(H)$.
+        \item Extract an effective $\mur(H)$.
+        \item Test the copper-gap route to $\mu_0$.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \textbf{Monel sample}
+      \vspace{0.5em}
+      \begin{itemize}
+        \item Record hysteresis loops while warming.
+        \item Reduce each loop to a magnetization proxy.
+        \item Locate the apparent Curie transition.
+      \end{itemize}
+    \end{column}
+  \end{columns}
+  \takeaway{The phenomena were clear; the final accuracy was set by systematic effects.}
+\end{frame}
+
+\begin{frame}{Physics In One Slide}
+  \large
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.48\textwidth}
+      \textbf{Ferromagnetic response}
+      \vspace{0.5em}
+      \[
+        B=\mu_0(H+M), \qquad \mur=\frac{B}{\mu_0 H}
+      \]
+      \begin{itemize}
+        \item Domains align with field.
+        \item Hysteresis and saturation appear.
+        \item $\mur$ is not constant.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \textbf{Curie transition}
+      \vspace{0.5em}
+      \[
+        M(T)\rightarrow0 \quad \text{near}\quad \Tc
+      \]
+      \begin{itemize}
+        \item Thermal fluctuations destroy spontaneous order.
+        \item Finite drive field smears the transition.
+        \item We therefore report an operational midpoint.
+      \end{itemize}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Measurement Logic}
+  \small
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.48\textwidth}
+      \centering
+      \includegraphics[width=0.86\linewidth,height=0.42\textheight,keepaspectratio]{experiment.png}
+      \vspace{0.2em}
+
+      \textbf{Iron: absolute calibration}
+      \[
+        H=\frac{N_1}{2LR_x}\Delta V_x,\qquad
+        B=\frac{R_yC}{2N_2A}\Delta V_y
+      \]
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \centering
+      \includegraphics[width=0.86\linewidth,height=0.42\textheight,keepaspectratio]{experiment2.jpeg}
+      \vspace{0.2em}
+
+      \textbf{Curie: relative calibration}
+      \[
+        X\equiv V_x\propto H,\qquad
+        M^*=c_YV_y-c_HV_x
+      \]
+    \end{column}
+  \end{columns}
+  \takeaway{$V_x$ measures drive field; the integrated pickup voltage measures magnetic response.}
+\end{frame}
+
+\begin{frame}[plain]
+  \centering
+  \includegraphics[width=0.95\paperwidth,height=0.94\paperheight,keepaspectratio]{fig_BH_mu.pdf}
+\end{frame}
+
+\begin{frame}{Iron: Magnetization Envelope}
+  \centering
+  \includegraphics[width=\textwidth,height=0.60\textheight,keepaspectratio]{fig_BH_mu.pdf}
+  \vspace{0.1em}
+
+  {\small
+    $\mur^{\max}=2.18(8)\times10^3$ at
+    $H=167(4)\,\mathrm{A/m}$, $B=0.458(12)\,\mathrm T$;
+    final point $B=1.243(33)\,\mathrm T$.
+  }
+  \takeaway{Peak-to-peak data give a magnetization envelope, not a full hysteresis loop.}
+\end{frame}
+
+\begin{frame}[plain]
+  \centering
+  \includegraphics[width=0.95\paperwidth,height=0.94\paperheight,keepaspectratio]{fig_copper_gap.pdf}
+\end{frame}
+
+\begin{frame}{Iron: Copper-Gap Test of $\mu_0$}
+  \centering
+  \includegraphics[width=\textwidth,height=0.61\textheight,keepaspectratio]{fig_copper_gap.pdf}
+  \vspace{-0.2em}
+
+  {\small
+    $NI/B=(1/\mu_0)L'+L/\mu_{\mathrm{Fe}}$;
+    $\mu_0^{\mathrm{fit}}=8.8(7),\,8.32(34)\times10^{-7}\,\mathrm{T\,m/A}$.
+  }
+  \takeaway{The fits are linear, but both return $\mu_0$ about $30$--$34\%$ low.}
+\end{frame}
+
+\begin{frame}[plain]
+  \centering
+  \includegraphics[width=0.95\paperwidth,height=0.94\paperheight,keepaspectratio]{curie_scope_transition_frames.pdf}
+\end{frame}
+
+\begin{frame}{Curie: What The Raw Data Show}
+  \centering
+  \includegraphics[width=\textwidth,height=0.60\textheight,keepaspectratio]{curie_scope_transition_frames.pdf}
+  \vspace{0.1em}
+
+  {\small Series A: 141 stable loops retained over $180.8$--$273.3\,\mathrm K$; loops close as the sample warms.}
+  \takeaway{The ferromagnetic--paramagnetic transition is visible before detailed fitting.}
+\end{frame}
+
+\begin{frame}{Curie: One Magnetization Number Per Loop}
+  \small
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.32\textwidth}
+      \textbf{Remanence}
+      \[
+        M_r=\frac12|M_+(0)-M_-(0)|
+      \]
+      \small Uses the loop opening at zero field.
+    \end{column}
+    \begin{column}{0.32\textwidth}
+      \textbf{Common edge}
+      \[
+        M_{\mathrm{sat}}=\frac12|M_+(H_s)-M_-(-H_s)|
+      \]
+      \small Uses the same near-saturation field in every loop.
+    \end{column}
+    \begin{column}{0.32\textwidth}
+      \textbf{Tail intercept}
+      \[
+        M_0=\frac12|b^{(+)}-b^{(-)}|
+      \]
+      \small Fits the high-field tails and subtracts the linear background.
+    \end{column}
+  \end{columns}
+  \takeaway{Agreement locates the transition; disagreement measures analysis sensitivity.}
+\end{frame}
+
+\begin{frame}[plain]
+  \centering
+  \includegraphics[width=0.95\paperwidth,height=0.94\paperheight,keepaspectratio]{curie_method123_normalized.pdf}
+\end{frame}
+
+\begin{frame}{Curie Result: Apparent Transition}
+  \centering
+  \includegraphics[width=\textwidth,height=0.53\textheight,keepaspectratio]{curie_method123_normalized.pdf}
+  \vspace{0.1em}
+
+  {\small
+    $M_r:216.4(8)\,\mathrm K$,
+    $M_{\mathrm{sat}}:214.8(10)\,\mathrm K$,
+    $M_0:199.2(17)\,\mathrm K$.
+  }
+
+  \vspace{0.1em}
+  {\large $\Tapp=214(12)\,\mathrm K=-59(12)^\circ\mathrm C$}
+  \takeaway{Finite-field half-height midpoint, not zero-field thermodynamic $\Tc$.}
+\end{frame}
+
+\begin{frame}[plain]
+  \centering
+  \includegraphics[width=0.95\paperwidth,height=0.94\paperheight,keepaspectratio]{curie_measured_drive_comparison.pdf}
+\end{frame}
+
+\begin{frame}{Curie: Field And Coverage Sensitivity}
+  \centering
+  \includegraphics[width=\textwidth,height=0.60\textheight,keepaspectratio]{curie_measured_drive_comparison.pdf}
+  \vspace{0.05em}
+
+  {\small
+    Run means: A $214.0\,\mathrm K$, B $202.9\,\mathrm K$, C $236.5\,\mathrm K$;
+    including C expands the envelope to $214(20)\,\mathrm K$.
+  }
+  \takeaway{Drive field and temperature coverage change the apparent midpoint.}
+\end{frame}
+
+\begin{frame}{What Limited The Measurements}
+  \small
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.31\textwidth}
+      \textbf{Copper-gap $\mu_0$}
+      \begin{itemize}
+        \item Effective gap thickness and plate contact.
+        \item Flux leakage or wrong effective area.
+        \item Integrator calibration.
+        \item Incomplete saturation.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.31\textwidth}
+      \textbf{Curie midpoint}
+      \begin{itemize}
+        \item Finite-field rounding.
+        \item Thermal lag and gradients.
+        \item Linear background subtraction.
+        \item Saturation-tail fit window.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.31\textwidth}
+      \textbf{Most useful repeats}
+      \begin{itemize}
+        \item Measure every copper plate directly.
+        \item Calibrate the $B$ channel independently.
+        \item Scan Curie more slowly.
+        \item Ensure a cold plateau in every run.
+      \end{itemize}
+    \end{column}
+  \end{columns}
+  \takeaway{The next improvement is calibration and control, not more decimal places.}
+\end{frame}
+
+\begin{frame}{Conclusions}
+  \large
+  \begin{itemize}
+    \item The iron toroid showed the expected soft-ferromagnet envelope and saturation, with $\mur^{\max}=2.18(8)\times10^3$.
+    \item The copper-gap scans were linear, but returned $\mu_0$ values $30$--$34\%$ low; this identifies a scale systematic.
+    \item The Monel loops collapsed near $\Tapp=214(12)\,\mathrm K=-59(12)^\circ\mathrm C$.
+  \end{itemize}
+  \takeaway{We observed both magnetic phenomena clearly; the honest final results are limited by systematic scale and finite-field effects.}
+\end{frame}
+
+\end{document}
