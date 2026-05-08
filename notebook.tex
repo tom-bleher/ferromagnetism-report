@@ -47,6 +47,7 @@
 \usepackage{amssymb}
 \usepackage{booktabs}
 \usepackage{array}
+\usepackage{tabularx}
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta}
 \renewcommand{\arraystretch}{1.18}
@@ -280,34 +281,23 @@ H=\frac{N_{1}}{2\,L\,R_{x}}\,\Delta V_{x},\qquad B=\frac{R_{y}C}{2\,N_{2}A}\,\De
 \end{equation}
 
 \section{אי־ודאויות}
-לכל גודל מדוד
-$x$,
-$\sigma_x=\sqrt{\sigma_{x,\mathrm{res}}^2+\sigma_{x,\mathrm{instr}}^2+\sigma_{x,\mathrm{other}}^2}$
-(איברים לא רלוונטיים מושמטים). שגיאות המערכת מופיעות בטבלה~\ref{tab:uncertaintiesA}. 
-$R_x$
-נמדד בתחום
-$\SI{100}{\ohm}$
-של המולטימטר. עבור
-$R_y$
-השתמשנו במפרט תחום
-$\SI{10}{\kilo\ohm}$;
-השגיאה בקיבול נתונה.
-
 \begin{table}[H]
 \centering
-\small
-\begin{tabular}{@{}rcc@{}}
+\scriptsize
+\setlength{\tabcolsep}{2pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedleft\arraybackslash}p{0.09\textwidth}>{\raggedleft\arraybackslash}p{0.10\textwidth}>{\raggedleft\arraybackslash}p{0.10\textwidth}>{\raggedleft\arraybackslash}p{0.23\textwidth}>{\raggedleft\arraybackslash}p{0.08\textwidth}>{\raggedleft\arraybackslash}X>{\raggedleft\arraybackslash}p{0.11\textwidth}@{}}
 \toprule
-גודל & מקור עיקרי & אי־ודאות ששימשה \\
+גודל & נמדד על ידי & רזולוציה & שגיאת מכשיר & שגיאה נתונה & שגיאה סופית & הערה \\
 \midrule
-$a_L,b_L,a_A,b_A$ & סרגל & $q/\sqrt{12}$, $q=\SI{1}{\milli\meter}$ \\
-$L'$ & קליבר & $q/\sqrt{12}$, $q=\SI{0.05}{\milli\meter}$ \\
-$R_x,R_y$ & מולטימטר & רזולוציה ומפרט יצרן \\
-$C$ & קבל & $0.010\%\,C$ \\
-$\Delta V_x,\Delta V_y$ & אוסצילוסקופ & $2.4\%\,|\Delta V|$ ורזולוציה \\
+$\begin{gathered}a_L,b_L\\a_A,b_A\end{gathered}$ & סרגל & $\SI{1}{\milli\meter}$ & -- & -- & $\SI{1}{\milli\meter}/\sqrt{12}$ & מידות ל-$L,A$ \\
+$L'$ & קליבר & $\SI{0.05}{\milli\meter}$ & -- & -- & $\SI{0.05}{\milli\meter}/\sqrt{12}$ & עובי רווח הנחושת \\
+$R_x$ & מולטימטר & $\SI{0.001}{\ohm}$ & $\begin{aligned}a_{R_x}={}&0.010\%\,R_x\\&+0.004\%\cdot\SI{100}{\ohm}\end{aligned}$ & -- & $\sqrt{\left(\frac{\SI{0.001}{\ohm}}{\sqrt{12}}\right)^2+a_{R_x}^2}$ & בטווח $\SI{100}{\ohm}$ \\
+$R_y$ & מולטימטר & $\SI{100}{\ohm}$ & $\begin{aligned}a_{R_y}={}&0.010\%\,R_y\\&+0.001\%\cdot\SI{10}{\kilo\ohm}\end{aligned}$ & -- & $\sqrt{\left(\frac{\SI{100}{\ohm}}{\sqrt{12}}\right)^2+a_{R_y}^2}$ & בטווח $\SI{10}{\kilo\ohm}$ \\
+$C$ & נתון & -- & -- & $0.010\%\,C$ & $0.010\%\,C$ & קיבול האינטגרטור \\
+$\Delta V_x,\Delta V_y$ & אוסצילוסקופ & $\SI{0.5}{\milli\volt}$ & $a_{\Delta V}=2.4\%\,|\Delta V|$ & -- & $\sqrt{\left(\frac{\SI{0.5}{\milli\volt}}{\sqrt{12}}\right)^2+a_{\Delta V}^2}$ & לכל ציר בנפרד \\
 \bottomrule
-\end{tabular}
-\caption{מקורות אי־הוודאות ששימשו בעיבוד. מפרטי המכשירים נלקחו מהתדריכים הרלוונטיים לניסוי.}
+\end{tabularx}
+\caption{מקורות אי־הוודאות ששימשו בעיבוד. מפרטי המכשירים נלקחו מהתדריכים הרלוונטיים לניסוי, והשגיאה הנתונה מופיעה רק עבור הקבל.}
 \label{tab:uncertaintiesA}
 \end{table}
 
@@ -646,8 +636,7 @@ $V_x,V_y,T$
 \begin{itemize}
 \item דגימת מונל בעלת מעבר מגנטי בתחום הנמדד.
 \item מכל חנקן נוזלי מבודד תרמית.
-\item צמד־חום ומד טמפרטורה
-\textenglish{508BR}
+\item צמד־חום ותרמומטר
 מחובר ל-
 \textenglish{LabVIEW}.
 \item שנאי משתנה, נגד
@@ -884,76 +873,106 @@ y_{\mathrm{norm}}(T)=\frac{y(T)-\min_T y}{\max_T y-\min_T y}.
 חסרה תחום קר יציב מתחת למעבר, ולכן היא משמשת בדיקת רגישות ולא חזרה שקולה.
 
 \subsection{אי־ודאויות}
-כמו בשבוע~1, אי־ודאות רזולוציה נלקחה כהתפלגות אחידה:
-\begin{equation}
-\sigma_{q_x}=\frac{q_x}{\sqrt{12}},\qquad
-\sigma_{q_y}=\frac{q_y}{\sqrt{12}},
-\end{equation}
-כאשר
-$q_x=\SI{0.6}{\milli\volt}$
-ו-
-$q_y=\SI{0.4}{\milli\volt}$
-נאמדו מצעד המתח בקבצי הלולאות הגולמיים. מקורות אי־הוודאות ששימשו בעיבוד קירי מסוכמים בטבלה~\ref{tab:uncertainties-week2}.
+בשבוע~2 גודל המטרה הוא טמפרטורת חצי־הגובה של עקומת מגנטיזציה מנורמלת. לכן אי־הוודאות נבנתה בשלושה שלבים: אי־ודאות נקודתית של
+$V_x,V_y,T$;
+אי־ודאות במדד המגנוט של כל לולאה; ולבסוף התפשטות לחציית
+$\tilde M=1/2$.
+קבועי הסקאלה של המערכת
+($N_1,N_2,R_x,R_y,C$)
+מכפילים את
+$M$
+בגורם משותף ומתבטלים בנרמול, ולכן אינם נכנסים לאי־הוודאות של
+$T_C$.
+הסיכום בטבלה~\ref{tab:uncertainties-week2}; ההגדרות המפורשות מופיעות מיד אחריה.
 
 \begin{table}[H]
 \centering
-\small
-\begin{tabular}{@{}rcc@{}}
+\scriptsize
+\setlength{\tabcolsep}{2pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedleft\arraybackslash}p{0.10\textwidth}>{\raggedleft\arraybackslash}p{0.12\textwidth}>{\raggedleft\arraybackslash}p{0.12\textwidth}>{\raggedleft\arraybackslash}p{0.16\textwidth}>{\raggedleft\arraybackslash}p{0.08\textwidth}>{\raggedleft\arraybackslash}X>{\raggedleft\arraybackslash}p{0.13\textwidth}@{}}
 \toprule
-גודל & מקור עיקרי & אי־ודאות ששימשה \\
+גודל & נמדד על ידי & רזולוציה & שגיאת מכשיר & שגיאה אחרת & שגיאה סופית & הערה \\
 \midrule
-$V_x,V_y$ & רזולוציית קבצי הלולאות & $q_x/\sqrt{12},\;q_y/\sqrt{12}$ \\
-$T$ & מד \textenglish{508BR} וקצב חימום & $\sigma_T$ לפי משוואה~\eqref{eq:curie-sigmaT} \\
-$M_0,M_{\mathrm{sat}}$ & קריאת ענפים מקומית & פיזור התאמה ורזולוציית $V_x,V_y$ \\
-$M_0^{\mathrm{ext}}$ & התאמת זנבות רוויה & פיזור התאמה ורזולוציית $V_x,V_y$ \\
-$T_C$ מקומי & חציית $\tilde M=1/2$ & התפשטות שגיאות לפי משוואה~\eqref{eq:curie-sigmaTc-local} \\
-קבועי טבלה~\ref{tab:apparatus-week2} & גורמי סקאלה & לא הוכנסו; מתבטלים בנרמול \\
+$V_x$ & \textenglish{LabVIEW} & $q_x=\SI{0.6}{\milli\volt}$ & -- & -- & $\sigma_{V_x}$ & מצעד מתח בקבצי הלולאות \\
+$V_y$ & \textenglish{LabVIEW} & $q_y=\SI{0.4}{\milli\volt}$ & -- & -- & $\sigma_{V_y}$ & מצעד מתח בקבצי הלולאות \\
+$T$ & תרמומטר & $q_T=\SI{0.001}{\kelvin}$ & $\sigma_{\mathrm{therm}}$ & $\sigma_{\mathrm{smear}}$ & $\sigma_T$ & טמפרטורת לולאה אחת \\
+$M_0,M_{\mathrm{sat}}$ & התאמת ענפים מקומית & $q_x,q_y$ & $\sigma_{+},\sigma_{-}$ & -- & $\sigma_M$ & ב-$H=0$ או $H=\pm H_{\mathrm{sat}}$ \\
+$M_0^{\mathrm{ext}}$ & התאמת זנבות רוויה & $q_x,q_y$ & $\sigma_{b^{(+)}},\sigma_{b^{(-)}}$ & -- & $\sigma_{M_0^{\mathrm{ext}}}$ & חלון זנב אדפטיבי \\
+$\tilde M$ & נרמול $M(T)$ & -- & -- & -- & $\sigma_{\tilde M}$ & קצות הנרמול נלקחו קבועים \\
+$T_C$ מקומי & חציית $\tilde M=1/2$ & -- & -- & -- & $\sigma_{T_C,\mathrm{loc}}$ & שתי נקודות סביב החציה \\
 \bottomrule
-\end{tabular}
-\caption{מקורות אי־הוודאות ששימשו בעיבוד שבוע~2. האי־ודאות המקומית בטבלאות היא אי־ודאות חילוץ של חציית חצי־הגובה בלבד.}
+\end{tabularx}
+\caption{מקורות אי־הוודאות ששימשו בעיבוד שבוע~2. הטבלה מציגה את סמלי השגיאות; הנוסחאות המפורשות ניתנות בטקסט.}
 \label{tab:uncertainties-week2}
 \end{table}
 
-אי־הוודאות בטמפרטורת כל לולאה כללה את דיוק מד הטמפרטורה ואת טשטוש הטמפרטורה בזמן רכישת לולאה אחת:
+למתחי הסקופ השתמשנו באי־ודאות רזולוציה בלבד:
 \begin{equation}
-\sigma_T=\sqrt{\sigma_{508\mathrm{BR}}^2+
-\left(\frac{|\dot T|\Delta t_{\mathrm{loop}}}{\sqrt{12}}\right)^2},
-\label{eq:curie-sigmaT}
+\sigma_{V_x}=\frac{q_x}{\sqrt{12}},
+\qquad
+\sigma_{V_y}=\frac{q_y}{\sqrt{12}}.
+\end{equation}
+לטמפרטורה של לולאה אחת צירפנו רזולוציית דיווח, דיוק תרמומטר, וטשטוש בגלל שינוי הטמפרטורה בזמן רכישת הלולאה:
+\begin{align}
+\sigma_T&=\sqrt{\left(\frac{q_T}{\sqrt{12}}\right)^2+
+\sigma_{\mathrm{therm}}^2+\sigma_{\mathrm{smear}}^2},\qquad
+\sigma_{\mathrm{smear}}=\frac{|\dot T|\Delta t_{\mathrm{loop}}}{\sqrt{12}},\\
+\sigma_{\mathrm{therm}}(T)&=0.001\,|T_{^\circ\mathrm{C}}|+
+\begin{cases}
+\SI{1}{\kelvin}, & T_{^\circ\mathrm{C}}\ge\SI{-60}{\degreeCelsius},\\
+\SI{2}{\kelvin}, & T_{^\circ\mathrm{C}}<\SI{-60}{\degreeCelsius}.
+\end{cases}
+\end{align}
+בנתונים
+$\Delta t_{\mathrm{loop}}\simeq\SI{5.6}{\second}$,
+וסביב המעבר
+$\sigma_{\mathrm{therm}}\simeq\SI{1.06}{\kelvin}$.
+
+מדדי המגנוט חושבו מחצי הפרש בין שני ענפים, ולכן אי־הוודאות שלהם היא חצי סכום ריבועי של אי־ודאויות הענפים. לשיטות הישירות
+($M_0,M_{\mathrm{sat}}$)
+השתמשנו ב-
+\begin{equation}
+\sigma_M=\frac{1}{2}\sqrt{\sigma_{+}^2+\sigma_{-}^2},
 \end{equation}
 כאשר
-$\sigma_{508\mathrm{BR}}$
-הוא מסדר
-$\SI{1}{\kelvin}$--$\SI{2}{\kelvin}$.
-לכל מדד
-$\tilde M(T)$
-חושב
-$T_C$
-מאינטרפולציה לינארית בין שתי הנקודות המקיפות את
-$\tilde M=1/2$.
-אם
+$\sigma_{+},\sigma_{-}$
+התקבלו מהתאמות
+\textenglish{ODR}
+מקומיות על שני הענפים. לשיטת הזנבות השתמשנו באי־ודאות חיתוכי הזנבות,
 \begin{equation}
-T_C=T_i+\frac{1/2-\tilde M_i}{\tilde M_{i+1}-\tilde M_i}(T_{i+1}-T_i),
+\sigma_{M_0^{\mathrm{ext}}}=\frac{1}{2}\sqrt{\sigma_{b^{(+)}}^2+\sigma_{b^{(-)}}^2}.
 \end{equation}
-אז אי־הוודאות המקומית חושבה לפי
+אחרי הנרמול
+$\tilde M=(M-M_{\min})/(M_{\max}-M_{\min})$
+קיבלנו
+\begin{equation}
+\sigma_{\tilde M}=\frac{\sigma_M}{M_{\max}-M_{\min}},
+\end{equation}
+כאשר
+$M_{\min},M_{\max}$
+נלקחו כקבועי סדרת העיבוד.
+
+הטמפרטורה המקומית
+$T_C$
+נקראה מאינטרפולציה לינארית בין שתי הנקודות המקיפות את
+$\tilde M=1/2$:
+\begin{equation}
+T_C=T_i+\frac{1/2-\tilde M_i}{\tilde M_{i+1}-\tilde M_i}(T_{i+1}-T_i).
+\end{equation}
+אי־הוודאות המקומית של חצייה זו חושבה מהנגזרות לפי שתי הטמפרטורות ושני ערכי המגנוט המנורמל:
 \begin{equation}
 \sigma_{T_C,\mathrm{loc}}^2=
 \sum_{j=i,i+1}\left(\frac{\partial T_C}{\partial T_j}\sigma_{T_j}\right)^2+
 \sum_{j=i,i+1}\left(\frac{\partial T_C}{\partial \tilde M_j}\sigma_{\tilde M_j}\right)^2.
 \label{eq:curie-sigmaTc-local}
 \end{equation}
-בנרמול לחצי־גובה, כל סקאלה משותפת של
-$M$
-(
-$N_1,N_2,R_x,R_y,C$
-) מבטלת את עצמה, ולכן קבועי המערכת אינם נכנסים לאי־הוודאות של
-$T_C$.
-האי־ודאות הסופית כוללת גם את פיזור השיטות והסדרות:
+האי־ודאות הסופית של התוצאה המדווחת כוללת מעבר לכך גם את רגישות החילוץ לשיטה ולסדרת מדידה:
 \begin{equation}
 \sigma_{T_C,\mathrm{final}}=\sqrt{\sigma_{T_C,\mathrm{loc}}^2+
 \sigma_{\mathrm{method}}^2+
 \sigma_{\mathrm{series}}^2}.
 \end{equation}
-לכן האי־ודאויות בסוגריים בטבלאות הן אי־ודאויות חילוץ מקומיות, ואילו הערך הסופי מעוגל כך שיכלול גם את רגישות השיטה והסדרה.
+לכן האי־ודאויות בסוגריים בטבלאות התוצאות הן אי־ודאויות חצייה מקומיות בלבד, ואילו הערך הסופי מעוגל כך שיכלול גם את פיזור השיטות והסדרות.
 
 \section{תוצאות טמפרטורת קירי}
 
