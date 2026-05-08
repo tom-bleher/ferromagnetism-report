@@ -70,8 +70,10 @@
 
 \section{מטרת הניסוי}
 \begin{itemize}
-\item מדידת הפרמאביליות של פרומגנט (ברזל).
-\item מדידת פרמאביליות הריק.
+\item מדידת עקומת
+$B(H)$
+והפרמאביליות היחסית של פרומגנט (ברזל).
+\item מדידת פרמאביליות הריק בעזרת רווחי נחושת.
 \end{itemize}
 
 \section{רקע תיאורטי}
@@ -82,16 +84,28 @@ $B,H,M$
 B,H,M
 ופרמאביליות}}
 בחומר שבו
-$\vec{M}=\chi\vec{H}$
+$\vec{M}=\chi_{\mathrm{M}}\vec{H}$
 (
-$\chi$
+$\chi_{\mathrm{M}}$
 הסוספטיביליות המגנטית),
 \begin{equation}
-\vec{B}=\mu_{0}(\vec{H}+\vec{M})=\mu_{0}(1+\chi)\vec{H}\equiv\mu\vec{H},
+\vec{B}=\mu_{0}(\vec{H}+\vec{M})=\mu_{0}(1+\chi_{\mathrm{M}})\vec{H}\equiv\mu\vec{H},
 \end{equation}
-ומכאן
+ואנו עובדים ביחידות
+\textenglish{MKS}:
+$B$
+בטסלה,
+$H$
+ב-
+\si{\ampere\per\meter}
+ו-
+$\mu$
+ב-
+\si{\tesla\meter\per\ampere}.
+מכאן
 \begin{equation}
-\mu_{\mathrm{r}}\equiv\frac{\mu}{\mu_{0}}=\frac{B}{\mu_{0}H}.
+\mu(H)\equiv\frac{B}{H},\qquad
+\mu_{\mathrm{r}}(H)\equiv\frac{\mu(H)}{\mu_{0}}=\frac{B}{\mu_{0}H}.
 \end{equation}
 בחומר לינארי
 $\mu_{\mathrm{r}}$
@@ -135,13 +149,15 @@ $\mu_{\mathrm{Cu}}\approx\mu_{0}$
 $B_{\mathrm{Fe}}=B_{\mathrm{gap}}\equiv B$
 (רלוונטית ברוויה),
 \begin{equation}\label{eq:linear}
-\frac{NI}{B}=\frac{1}{\mu_{0}}\,L'+\frac{L}{\mu_{\mathrm{Fe}}}.
+\frac{NI}{B}=\frac{1}{\mu_{0}}\,L'+\frac{L}{\mu_{\mathrm{Fe}}(H)}.
 \end{equation}
 אם
 $B$
 נשמר קבוע בסריקת
 $L'$
-, השיפוע הוא
+, ובתחום רוויה
+$\mu_{\mathrm{Fe}}(H)$
+בקירוב קבוע, השיפוע הוא
 $1/\mu_0$.
 
 \section{מערכת הניסוי}
@@ -296,15 +312,34 @@ $\Delta V_x,\Delta V_y$ & אוסצילוסקופ & $\SI{0.5}{\milli\volt}$ & $2.
 $L=2(a_L+b_L)$
 ו-
 $A=a_Ab_A$
-מורכבים משתי קריאות סרגל בלתי תלויות. אי־ודאויות
+מורכבים משתי קריאות סרגל בלתי תלויות, ולכן
+\begin{equation}
+\sigma_L=2\sqrt{\sigma_{a_L}^2+\sigma_{b_L}^2},\qquad
+\sigma_A=A\sqrt{\left(\frac{\sigma_{a_A}}{a_A}\right)^2+
+\left(\frac{\sigma_{b_A}}{b_A}\right)^2}.
+\end{equation}
+אי־ודאויות
 $H$,
 $B$,
 $\mu_{\mathrm{r}}$
 והיחס 
 $r=\Delta V_x/\Delta V_y$
  מתקבלות משגיאה עקיפה לפי משוואה~\eqref{eq:HBpp} ו-
-$\mu_{\mathrm{r}}=B/(\mu_0 H)$.
-% we should likely write them just in case.
+$\mu_{\mathrm{r}}=B/(\mu_0 H)$:
+\begin{align}
+\sigma_H&=H\sqrt{\left(\frac{\sigma_{\Delta V_x}}{\Delta V_x}\right)^2+
+\left(\frac{\sigma_L}{L}\right)^2+
+\left(\frac{\sigma_{R_x}}{R_x}\right)^2},\\
+\sigma_B&=B\sqrt{\left(\frac{\sigma_{\Delta V_y}}{\Delta V_y}\right)^2+
+\left(\frac{\sigma_{R_y}}{R_y}\right)^2+
+\left(\frac{\sigma_C}{C}\right)^2+
+\left(\frac{\sigma_A}{A}\right)^2},\\
+\sigma_{\mu_{\mathrm{r}}}&=\mu_{\mathrm{r}}
+\sqrt{\left(\frac{\sigma_B}{B}\right)^2+
+\left(\frac{\sigma_H}{H}\right)^2},\\
+\sigma_r&=r\sqrt{\left(\frac{\sigma_{\Delta V_x}}{\Delta V_x}\right)^2+
+\left(\frac{\sigma_{\Delta V_y}}{\Delta V_y}\right)^2}.
+\end{align}
 
 \section{מעטפת שיא־לשיא של \texorpdfstring{
 $B(H)$
@@ -314,10 +349,8 @@ $B(H)$
 השנאי כוון 
 ל-
 $\SI{10}{\volt},\SI{20}{\volt},\ldots,\SI{130}{\volt}$
-(
-$13$
-נקודות).
- בכל קפיצה הזזנו את הסמנים על האוסצילוסקופ עד שנגעו בקצות הלולאה, ורשמנו את הפרשי המתחים 
+(סך הכל $13$ נקודות).
+ בכל קפיצה כיוונו את סקאלות האוסצילוסקופ כך שהלולאה תמלא כמה שיותר מן המסך, הזזנו את הסמנים עד שנגעו בקצות הלולאה, ורשמנו את הפרשי המתחים 
  $\Delta V_x,\Delta V_y$
  (איור~\ref{fig:scope-cursors}).
   האמפרמטר שימש רק לבקרת מגבלת הזרם 
@@ -339,11 +372,11 @@ $(\Delta V_x,\Delta V_y)$
  הומר 
  ל-
 $(H,B)$
-  דרך~\eqref{eq:HBpp}.
-   התדריך מבקש עקומת מגנוט, אך בפועל נשמרו רק ממדי שיא־לשיא של הלולאות ולא ענף מגנוט ראשוני אחרי דה־מגנוט. לכן העיבוד כאן הוא תחליף ניסויי מוגבל: מעטפת שיאים שממנה ניתן לאמוד 
-   $\mu_{\mathrm{r}}(H)$
-    אפקטיבי ותחילת רוויה, אך לא רמננטיות, קוארסיביות או פרמאביליות ראשונית. הקווים החלקים שורטטו להנחיית העין בלבד, ו-
-    $\mu_{\mathrm{r}}^{\max}$
+   דרך~\eqref{eq:HBpp}.
+מדדנו את רוחב וגובה לולאת החשל עבור אמפליטודות זרם שונות. חצי מערכי השיא־לשיא מייצג את נקודת הקצה של הלולאה, ונקודות קצה אלה נמצאות על מעטפת עקומת המגנוט. מהנקודות חושבה גם הפרמאביליות היחסית
+$\mu_{\mathrm{r}}(H)=B/(\mu_0H)$.
+הקווים החלקים שורטטו להנחיית העין בלבד, ו-
+$\mu_{\mathrm{r}}^{\max}$
 נלקח כמקסימום בין נקודות המדידה. התוצאות באיור~\ref{fig:BH} ובטבלה~\ref{tab:bh-results}.
 
 \begin{figure}[H]
@@ -416,7 +449,7 @@ $\langle B\rangle\simeq\SI{1.02}{\tesla}$
 $\SI{0.79}{\tesla}$
 נמוכים מערך השיא של חלק א' (
 $\SI{1.24}{\tesla}$
-), ולכן אי־רוויה אפשרית נכללת במפורש כמקור שיטתי. פרמטרי הסדרות בטבלה~\ref{tab:mu0-runs}.
+). לפי איור~\ref{fig:BH} זהו תחום שבו העקומה כבר מתמתנת, אך לא מובטח שהברזל ברוויה מלאה; לכן אי־רוויה אפשרית היא מקור שיטתי מרכזי. פרמטרי הסדרות בטבלה~\ref{tab:mu0-runs}.
 
 \begin{table}[H]
 \centering
@@ -444,7 +477,7 @@ $y=mx+b$
 $y=NI/B$,
 $x=L'$,
 $m=1/\mu_0$,
-$b=L/\mu_{\mathrm{Fe}}$.
+$b=L/\bar{\mu}_{\mathrm{Fe}}$.
 עבור כל נקודה חושבו
 $I=\Delta V_x/(2R_x)$
 ו-
@@ -479,11 +512,11 @@ $\mu_0^{\mathrm{theo}}=\SI{1.25664e-6}{\tesla\meter\per\ampere}$.
 פרמטר & סדרה \texttt{a} & סדרה \texttt{b} \\
 \midrule
 $m=\frac{1}{\mu_0}$ & $\SI{1.14(9)e6}{\ampere\per\tesla\per\meter}$ & $\SI{1.20(5)e6}{\ampere\per\tesla\per\meter}$ \\
-$b=\frac{L}{\mu_{\mathrm{Fe}}}$ & $\SI{342(16)}{\ampere\per\tesla}$ & $\SI{220(12)}{\ampere\per\tesla}$ \\
+$b=\frac{L}{\bar{\mu}_{\mathrm{Fe}}}$ & $\SI{342(16)}{\ampere\per\tesla}$ & $\SI{220(12)}{\ampere\per\tesla}$ \\
 $\mu_{0}^{\mathrm{fit}}=\frac{1}{m}$ & $\SI{8.8(7)e-7}{\tesla\meter\per\ampere}$ & $\SI{8.32(33)e-7}{\tesla\meter\per\ampere}$ \\
 $\sigma_{\mu_0}/\mu_0$ & $8.2\%$ & $3.9\%$ \\
 $\mu_{0}^{\mathrm{fit}}/\mu_{0}^{\mathrm{theo}}$ & $\num{0.70(6)}$ & $\num{0.66(3)}$ \\
-$\mu_{\mathrm{Fe}}/\mu_{0}^{\mathrm{theo}}$ & $\num{1.12(5)e3}$ & $\num{1.74(10)e3}$ \\
+$\bar{\mu}_{\mathrm{Fe}}/\mu_{0}^{\mathrm{theo}}$ & $\num{1.12(5)e3}$ & $\num{1.74(10)e3}$ \\
 \midrule
 $\chi^2/\nu$ & $0.91$ & $0.67$ \\
 $p$ & $0.403$ & $0.616$ \\
@@ -499,15 +532,11 @@ $\mu_0$
 \label{tab:mu0-fit-results}
 \end{table}
 
-באיור~\ref{fig:gap} שתי הסדרות נראות לינאריות, וגם השארים אינם מצביעים על סטייה שיטתית בתוך כל סדרה. לכן הבעיה אינה איכות ההתאמה הלינארית:
-$\chi^2/\nu\sim1$
-וערכי
-$p$
-תקינים, אבל השיפועים נותנים
+באיור~\ref{fig:gap} שתי הסדרות נראות לינאריות, וגם השארים אינם מצביעים על סטייה שיטתית בתוך כל סדרה
+($\chi^2/\nu\sim1$).
+עם זאת, השיפועים נותנים
 $\mu_0$
-נמוך מהספרות במובהקות גבוהה (
-$N_\sigma=5.3,13.0$
-). לכן נראה שמקור הפער בשגיאה שיטתית.
+נמוך מהערך הספרותי. לכן הפרשנות העיקרית היא הטיה שיטתית, למשל שטף/חתך אפקטיבי קטן מהגאומטרי, רווח אפקטיבי גדול מהנומינלי, או אי־רוויה מלאה של הברזל.
 
 \section{דיון ומסקנות}
 \begin{itemize}
@@ -516,7 +545,7 @@ $\mu_{\mathrm{r}}^{\max}=\num{2.18(8)e3}$
 — אומדן אפקטיבי, לא פרמאביליות ראשונית (טבלה~\ref{tab:bh-results}).
 \item שתי סדרות פרמאביליות הריק לינאריות פנימית אך
 $\mu_0^{\mathrm{fit}}/\mu_0^{\mathrm{theo}}\approx0.7$
-במובהקות גבוהה (טבלה~\ref{tab:mu0-fit-results}); הסבר אפשרי הוא שטף/חתך אפקטיבי קטן מהגאומטרי, או רווח אפקטיבי גדול מהנומינלי.
+באופן עקבי (טבלה~\ref{tab:mu0-fit-results}); הסבר אפשרי הוא שטף/חתך אפקטיבי קטן מהגאומטרי, רווח אפקטיבי גדול מהנומינלי, או אי־רוויה מלאה.
 \item במדידה חוזרת: למדוד עובי כל לוחית ישירות, לתעד סקאלות אוסילוסקופ, ולכייל עצמאית את האינטגרטור ואת השטח האפקטיבי.
 \end{itemize}
 
@@ -534,32 +563,32 @@ $\mu_0^{\mathrm{fit}}/\mu_0^{\mathrm{theo}}\approx0.7$
 
 \subsection{מעבר פאזה}
 מעל
-$T_{\mathrm{c}}$
+$T_c$
 תנודות תרמיות שוברות את הסידור הספונטני, והחומר עובר לפאזה פאראמגנטית (
 $M=0$
 ב-
 $H=0$
 ). מתחת ל-
-$T_{\mathrm{c}}$
+$T_c$
 קיימת מגנטיזציה ספונטנית. זהו מעבר רציף (סדר שני) שבו
 $M$
 פרמטר הסדר.
 
 \subsection{חוק קירי--וייס}
 בפאזה הפאראמגנטית (
-$T>T_{\mathrm{c}}$
+$T>T_c$
 ),
 \begin{equation}
-\chi=\frac{M}{H}=\frac{C_{\mathrm{CW}}}{T-T_{\mathrm{c}}},
+\chi_{\mathrm{M}}=\frac{M}{H}=\frac{C_{\mathrm{CW}}}{T-T_c},
 \end{equation}
 ו-
-$1/\chi(T)$
+$1/\chi_{\mathrm{M}}(T)$
 לינארי, חותך את ציר
 $T$
 ב-
-$T_{\mathrm{c}}$.
+$T_c$.
 בפועל לא השתמשנו בהתאמת
-$1/\chi(T)$:
+$1/\chi_{\mathrm{M}}(T)$:
 הגאומטריה של הסלילים והדגימה לא נמדדה מספיק טוב להמרה אבסולוטית ל-
 $H,M$
 , ומעל המעבר נשארת תגובה מושרית בשדה סופי. לכן חוק קירי--וייס משמש כאן כרקע תאורטי בלבד, והחילוץ הכמותי נעשה ממדדי מגנוט מנורמלים.
@@ -567,22 +596,22 @@ $H,M$
 \subsection{קירוב שדה ממוצע ליד המעבר}
 מודל השדה הממוצע נותן
 \begin{equation}
-M(T)\propto\sqrt{T_{\mathrm{c}}-T}\qquad(T\lesssim T_{\mathrm{c}}),
+M(T)\propto\sqrt{T_c-T}\qquad(T\lesssim T_c),
 \end{equation}
 ולכן
 $M^2(T)$
 לינארי סמוך ל-
-$T_{\mathrm{c}}$.
+$T_c$.
 
 בשדה אפס פרמטר הסדר נעלם בחדות ב-
-$T_{\mathrm{c}}$
+$T_c$
 ; בשדה סופי המגנטיזציה המושרת לא מתאפסת בדיוק במעבר והמעבר מתרחב (איור~\ref{fig:curie-finite-field-schematic}).
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.58\linewidth]{curie_finite_field_schematic.pdf}
     \caption{סכמה של דעיכת המגנוט ליד מעבר קירי בשדה אפס ובשדה חיצוני סופי. שדה גדול יותר מרחיב את המעבר ומותיר מגנטיזציה מושרית גם מעל
-    $T_{\mathrm{c}}$.}
+    $T_c$.}
     \label{fig:curie-finite-field-schematic}
 \end{figure}
 
@@ -625,7 +654,10 @@ $RC$
 \textenglish{HP 34401A}.
 \end{itemize}
 
-רזולוציות הצירים בטבלאות~\ref{tab:curie-voltage-sigmas} ו-\ref{tab:curie-sigmaT}.
+רזולוציות הדיגיטציה ששימשו בעיבוד היו
+$q_x=\SI{0.6}{\milli\volt}$
+ו-
+$q_y=\SI{0.4}{\milli\volt}$.
 
 \subsection{סימוני הצירים והכיול היחסי}
 המעגל זהה לשבוע~1, עם קבועים
@@ -655,11 +687,15 @@ H^*=c_H X,\qquad M^*=c_Y Y-H^*,
 \end{equation}
 עם
 $c_H,c_Y$
-קבועי סקאלה לכל סדרה. איורי הנתונים הגולמיים בוולטים, ואחרי ההמרה ב-
+קבועי סקאלה לכל סדרה. מאחר שכל מדד מנורמל לפני קריאת חצי־הגובה, גורמי הסקאלה אינם משנים את הטמפרטורה המתקבלת. איורי הנתונים הגולמיים בוולטים, ואחרי ההמרה ב-
 $H^*,M^*$.
-במסמך זה נסמן ב-
-$T_c$
-את טמפרטורת חצי־הגובה של מדד המגנוט המנורמל שנמדדה בשדה סופי.
+בהמשך נציג את המגנוט המנורמל
+$M/M_{\mathrm{sat}}$
+כפונקציה של
+$T$.
+טמפרטורת חצי־הגובה מסומנת
+$T_{1/2}^{\mathrm{app}}$;
+היא אומדן ניסויי לטמפרטורת קירי בשדה סופי, ולא ערך תרמודינמי אידיאלי בשדה אפס.
 
 \section{שיטת מדידה ועיבוד נתונים}
 
@@ -771,7 +807,7 @@ $M_{\mathrm{r}}$:
 $H^*=0$.
 \item
 $M_{\mathrm{sat}}$:
-פתיחת הלולאה בקצה חלון השדה המשותף.
+פתיחת הלולאה בקצה חלון השדה המשותף (מדד קצה־שדה, לא ערך רוויה אבסולוטי).
 \item
 $M_0$:
 אקסטרפולציה של זנבות הרוויה אל
@@ -786,10 +822,10 @@ M_{0}(T)&=\frac{1}{2}\left|b^{(+)}-b^{(-)}\right|.
 \end{align}
 בשיטה~3,
 $b^{(\pm)}$
-הם חיתוכי ההתאמה הלינארית בזנבות הרוויה,
-$M^*(H^*)\approx M_{0}(T)+\chi_{\mathrm{HF,rel}}(T)H^*$
+הם חיתוכי התאמות לינאריות קצרות בזנבות הרוויה,
+$M^*(H^*)\approx M_{0}(T)+\chi_{\mathrm{M,HF,rel}}(T)H^*$
 — הצורה היחסית של
-$B/\mu_{0}-(\chi_{\mathrm{HF}}+1)H=M_{0}$.
+$B/\mu_{0}-(\chi_{\mathrm{M,HF}}+1)H=M_{0}$.
 חלון ההתאמה נבחר מזנבות הלולאה בלבד: מתחילים מחמש נקודות הקצה, שומרים נקודות עם
 $|M^*|\ge0.95|\hat M_0|$
 , ומרחיבים פנימה כל עוד השיפוע נשאר יציב.
@@ -824,7 +860,11 @@ y_{\mathrm{norm}}(T)=\frac{y(T)-\min_T y}{\max_T y-\min_T y}.
     \includegraphics[width=0.85\linewidth]{curie_method123_normalized.pdf}
     \caption{שלושת מדדי הסדר המנורמלים בסדרה~%
     \textenglish{A}.
-    הקו האופקי מסמן חצי־גובה, והסימנים עליו מציינים את חציית כל מדד.}
+    הקו האופקי מסמן
+    $M/M_{\mathrm{sat}}=1/2$,
+    והסימנים עליו מציינים את
+    $T_{1/2}^{\mathrm{app}}$
+    לכל מדד.}
 \label{fig:curie-method123}
 \end{figure}
 
@@ -835,75 +875,17 @@ y_{\mathrm{norm}}(T)=\frac{y(T)-\min_T y}{\max_T y-\min_T y}.
 $M$
 (
 $N,L,R_x,R_y,C,A$
-) מבטלת את עצמה. התקציב מתחלק לשני סוגים: אי־ודאות טמפרטורה מוחלטת ללולאה (טבלה~\ref{tab:curie-sigmaT}) ואי־ודאות חילוץ מקומית מצירי המתח ומההתאמות (טבלה~\ref{tab:curie-voltage-sigmas}). האי־ודאויות בסוגריים בטבלאות התוצאות הן מקומיות בלבד; דיוק מד הטמפרטורה המוחלט הוא תרומה שיטתית משותפת ונבלע במעטפת הסופית.
-
-תקציב הטמפרטורה הוא
-\begin{equation}\label{eq:sigmaT-curie}
-\sigma_T=\sqrt{\sigma_{T,\mathrm{smear}}^2+\sigma_{T,\mathrm{res}}^2+\sigma_{T,\mathrm{instr}}^2(T)}.
-\end{equation}
-ב-
-$T_{1/2}^{\mathrm{app}}\approx\SI{215}{\kelvin}$
-(
-$\SI{-58}{\degreeCelsius}$
-) תקף התחום החם של המפרט,
-$\sigma_{T,\mathrm{instr}}\approx\SI{1.1}{\kelvin}$
-; מתחת ל-
-$\SI{-60}{\degreeCelsius}$
-,
-$\sigma_{T,\mathrm{instr}}\approx\SI{2.1}{\kelvin}$.
-המפרט מתייחס למד הטמפרטורה בלבד ואינו כולל את צמד־החום, ולכן הוא אינו מצדיק דיוק מוחלט טוב יותר מ-
-$\sim\SI{1}{\kelvin}$--$\SI{2}{\kelvin}$.
-
-\begin{table}[H]
-\centering
-\small
-\setlength{\tabcolsep}{3pt}
-\begin{tabular}{@{}r >{\centering\arraybackslash}p{0.32\linewidth} >{\centering\arraybackslash}p{0.43\linewidth}@{}}
-\toprule
-תרומה & מקור & הגדרה \\
-\midrule
-$\sigma_{T,\mathrm{smear}}$ & טשטוש חימום בחלון $\Delta t_{\mathrm{loop}}\approx\SI{5.6}{\second}$ & $\displaystyle\frac{|dT/dt|\,\Delta t_{\mathrm{loop}}}{\sqrt{12}}$ \\
-$\sigma_{T,\mathrm{res}}$ &  שגיאת רזולוציה & $\displaystyle\frac{\SI{1e-3}{\kelvin}}{\sqrt{12}}$ \\
-$\sigma_{T,\mathrm{instr}}$ & שגיאת מכשיר & $\displaystyle
-\begin{cases}
-0.1\%\,|T_{^\circ\mathrm{C}}|+\SI{1}{\kelvin}, & T\in[\SI{-60}{\degreeCelsius},\SI{1372}{\degreeCelsius}],\\
-0.1\%\,|T_{^\circ\mathrm{C}}|+\SI{2}{\kelvin}, & T\in[\SI{-220}{\degreeCelsius},\SI{-60}{\degreeCelsius}).
-\end{cases}$ \\
-\bottomrule
-\end{tabular}
-\caption{אי־ודאות הטמפרטורה לכל לולאה.}
-\label{tab:curie-sigmaT}
-\end{table}
-
-לכל שיטה הוערכה אי־ודאות חילוץ מקומית
-$\sigma_y$
-מן ההתאמה הלינארית (סביב
-$X=0$
-בשיטה~1, סביב
-$X_{\min/\max}$
-בשיטה~2, בזנב הרוויה בשיטה~3), בעזרת אי־ודאויות הדיגיטציה (טבלה~\ref{tab:curie-voltage-sigmas}). ההתאמה מתבצעת במתחים, וההמרה ל-
-$M^*(H^*)$
-רק בסיום.
-
-\begin{table}[H]
-\centering
-\small
-\begin{tabular}{@{}rcc@{}}
-\toprule
-תרומה & מקור & גודל \\
-\midrule
-$\sigma_{X,\mathrm{dig}}$ & שגיאת דיגיטציה בציר $X$, $q_x=\SI{0.6}{\milli\volt}$ & $q_x/\sqrt{12}$ \\
-$\sigma_{Y,\mathrm{dig}}$ & שגיאת דיגיטציה בציר $Y$, $q_y=\SI{0.4}{\milli\volt}$ & $q_y/\sqrt{12}$ \\
-\bottomrule
-\end{tabular}
-\caption{אי־ודאות צירי המתח בהתאמות זנבות הלולאה.}
-\label{tab:curie-voltage-sigmas}
-\end{table}
+) מבטלת את עצמה. אי־הוודאות המקומית של כל חציית חצי־גובה חושבה מהפיזור בהתאמות המקומיות ללולאה ומרזולוציות הדיגיטציה בצירים
+$q_x=\SI{0.6}{\milli\volt}$,
+$q_y=\SI{0.4}{\milli\volt}$.
+בנוסף יש תרומה משותפת של מד הטמפרטורה והצמד התרמי, מסדר
+$\SI{1}{\kelvin}$--$\SI{2}{\kelvin}$,
+וכן טשטוש קטן בזמן התחממות הלולאה. לכן האי־ודאויות בסוגריים בטבלאות הן אי־ודאויות חילוץ מקומיות, ואילו האי־ודאות הסופית נקבעת גם מפיזור השיטות והסדרות.
 
 \section{תוצאות טמפרטורת חצי־גובה}
 
 \subsection{חילוץ טמפרטורת חצי־הגובה}
-לכל מדד חושבה הטמפרטורה שבה המדד המנורמל יורד דרך חצי־גובה. אי־הוודאות המדווחת בטבלאות היא אי־ודאות חילוץ מקומית של החציה, ואינה כוללת את דיוק מד הטמפרטורה המוחלט. תוצאות סדרה~
+לכל מדד חושבה הטמפרטורה שבה המדד המנורמל יורד דרך חצי־גובה. אי־הוודאות המדווחת בטבלאות היא אי־ודאות חילוץ מקומית של החציה. תוצאות סדרה~
 \textenglish{A}
 (טבלה~\ref{tab:curie-results}) קובעות את האומדן המרכזי ואת רגישות השיטה; טבלה~\ref{tab:curie-runs} משמשת לבדיקת רגישות לשדה ולכיסוי טמפרטורה.
 
@@ -942,34 +924,20 @@ $\SI{16}{\kelvin}$
 \centering
 \footnotesize
 \setlength{\tabcolsep}{3pt}
-\newcommand{\curieresult}[2]{\ensuremath{#1\pm #2}}
-\newcommand{\relerr}[1]{\ensuremath{#1\%}}
-\begin{tabular}{@{}rccccccc@{}}
+\begin{tabular}{@{}rccccc@{}}
 \toprule
-סדרה & $I_{\mathrm{rms}}$ (\si{\ampere}) & $H/H_A$ & תחום $T$ (\si{\kelvin}) & לולאות & מדד & $T_{1/2}\pm\sigma$ (\si{\kelvin}) & $\sigma/T$ \\
+סדרה & $I_{\mathrm{rms}}$ (\si{\ampere}) & תחום $T$ (\si{\kelvin}) & $M_{\mathrm{r}}$ & $M_{\mathrm{sat}}$ & $M_0$ \\
 \midrule
-\textenglish{A} & $1.97$ & $1.00$ & $180.8$--$273.3$ & $141$ & $M_{\mathrm{r}}$ & \curieresult{216.4}{0.8} & \relerr{0.4} \\
-\textenglish{A} & $1.97$ & $1.00$ & $180.8$--$273.3$ & $141$ & $M_{\mathrm{sat}}$ & \curieresult{214.8}{1.0} & \relerr{0.5} \\
-\textenglish{A} & $1.97$ & $1.00$ & $180.8$--$273.3$ & $141$ & $M_0$ & \curieresult{199.1}{1.7} & \relerr{0.9} \\
-\addlinespace[0.25em]
-\textenglish{B} & $2.24$ & $1.13$ & $159.1$--$273.2$ & $155$ & $M_{\mathrm{r}}$ & \curieresult{209.7}{2.1} & \relerr{1.0} \\
-\textenglish{B} & $2.24$ & $1.13$ & $159.1$--$273.2$ & $155$ & $M_{\mathrm{sat}}$ & \curieresult{210.0}{1.7} & \relerr{0.8} \\
-\textenglish{B} & $2.24$ & $1.13$ & $159.1$--$273.2$ & $155$ & $M_0$ & \curieresult{192.5}{1.6} & \relerr{0.8} \\
-\addlinespace[0.25em]
-\textenglish{C} & $0.65$ & $0.33$ & $221.3$--$273.3$ & $177$ & $M_{\mathrm{r}}$ & \curieresult{245.3}{0.8} & \relerr{0.3} \\
-\textenglish{C} & $0.65$ & $0.33$ & $221.3$--$273.3$ & $177$ & $M_{\mathrm{sat}}$ & \curieresult{233.6}{0.8} & \relerr{0.3} \\
-\textenglish{C} & $0.65$ & $0.33$ & $221.3$--$273.3$ & $177$ & $M_0$ & \curieresult{229.4}{0.8} & \relerr{0.3} \\
+\textenglish{A} & $1.97$ & $180.8$--$273.3$ & $216.4\pm0.8$ & $214.8\pm1.0$ & $199.1\pm1.7$ \\
+\textenglish{B} & $2.24$ & $159.1$--$273.2$ & $209.7\pm2.1$ & $210.0\pm1.7$ & $192.5\pm1.6$ \\
+\textenglish{C} & $0.65$ & $221.3$--$273.3$ & $245.3\pm0.8$ & $233.6\pm0.8$ & $229.4\pm0.8$ \\
 \bottomrule
 \end{tabular}
-\caption{סדרות קירי מול שלוש שיטות חצי־גובה, עם אי־ודאות חילוץ מקומית.
-כל שורה היא סדרה ושיטת חילוץ אחת; שתי העמודות האחרונות מציגות את אי־הוודאות האבסולוטית ואת השגיאה היחסית
-$100\sigma/T$.
-$H/H_A$
-הוא יחס אמפליטודת השדה החציונית לסדרה~%
-\textenglish{A};
-סדרה~%
+\caption{השוואת סדרות קירי. ערכי
+$T_{1/2}^{\mathrm{app}}$
+בקלווין; האי־ודאות היא אי־ודאות חילוץ מקומית. סדרה~%
 \textenglish{C}
-מדווחת כמעטפת רגישות.}
+חסרה תחום קר יציב ולכן משמשת בדיקת רגישות בלבד.}
 \label{tab:curie-runs}
 \end{table}
 
@@ -992,63 +960,44 @@ $0.33H_A$
 , ללא תחום קר יציב) נותנת ערכים גבוהים יותר, ונשמרת כמעטפת רגישות רחבה.
 
 איור~\ref{fig:curie-drive-comparison} מציג את
-$M^*_{\mathrm{sat}}$
-המנורמל בשלוש הסדרות מול ציר טמפרטורה מנורמל. שלוש העקומות אינן מתלכדות לעקומה תאורטית יחידה — סימן שגם השהיה תרמית, תחום רוויה, חזרתיות וכיסוי טמפרטורה משפיעים על התוצאה.
+$M/M_{\mathrm{sat}}$
+המנורמל בשלוש הסדרות. ההבדלים בין העקומות מראים שהשדה, כיסוי הטמפרטורה והשהיה תרמית משפיעים על ערך חצי־הגובה.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.82\linewidth]{curie_measured_drive_comparison.pdf}
     \caption{דעיכת מדד הרוויה היחסי
-    $M^*_{\mathrm{sat}}$
+    $M/M_{\mathrm{sat}}$
     המנורמל בשלוש סדרות המדידה. ערכי הזרם והכיסוי של כל סדרה מסוכמים בטבלה~%
     \ref{tab:curie-runs}.}
     \label{fig:curie-drive-comparison}
 \end{figure}
 
 \section{דיון ומסקנות}
-הרכב סגסוגת המונל אינו ידוע, ולכן איכות התוצאה נבחנת מעקביות פנימית: הסכמה בין שלוש שיטות, חזרתיות בין סדרות, ורגישות לשדה ולכיסוי.
-
-סדרה~
+הרכב סגסוגת המונל אינו ידוע, ולכן איכות התוצאה נבחנת בעיקר מעקביות פנימית. האומדן המרכזי נלקח מהממוצע המעוגל של שתי השיטות הישירות בסדרה~
 \textenglish{A}
-היא הבסיס: היא כוללת תחום קר יציב, כיסוי מלא עד הפאראמגנטי, ושתי השיטות הישירות (
+(
 $M_{\mathrm{r}},M_{\mathrm{sat}}$
-) מסכימות בתוך
-$\SI{2}{\kelvin}$.
-שיטה~3 (
-$M_0$
-) רגישה לבחירת חלון זנב הרוויה ולכן נותנת ערך נמוך יותר; הפיזור בינה לשתי הישירות נכלל באי־הוודאות. סדרה~
-\textenglish{B}
-נמוכה בכ-
-$\SI{6}{\kelvin}$
-בשיטות הישירות ומשמשת לאומדן רגישות שדה בין סדרות שדה גבוה. סדרה~
-\textenglish{C}
-אינה שקולה (שדה קטן פי שלושה, חסר תחום קר) ונשמרת כמעטפת רחבה.
-
-הערך המרכזי נלקח משתי השיטות הישירות בסדרה~
-\textenglish{A}.
-אי־הוודאות הסופית משלבת את פיזור השיטות בסדרה~
-\textenglish{A}
-עם פיזור הסדרות
-\textenglish{A,B}
-בשיטות הישירות:
+), שהסכימו בתוך
+$\SI{2}{\kelvin}$:
 \begin{equation}\label{eq:T12-headline}
 T_{1/2}^{\mathrm{app}}=\SI{216(10)}{\kelvin}=\SI{-58(10)}{\degreeCelsius},
 \end{equation}
-כאשר
-$\sigma_{\mathrm{final}}=\sqrt{(\SI{9.5}{\kelvin})^2+(\SI{4.0}{\kelvin})^2}\simeq\SI{10}{\kelvin}$.
-עם הכללת
-\textenglish{C}
-מתקבלת מעטפת רחבה
-$\SI{216(20)}{\kelvin}$.
-בשני המקרים זהו מעבר תפעולי בשדה סופי, לא
-$T_{\mathrm{c}}$
-תרמודינמי.
+כאשר האי־ודאות כוללת את פיזור השיטות, ההבדל בין סדרות
+\textenglish{A,B}
+ואי־ודאות טמפרטורה מסדר
+$\SI{1}{\kelvin}$--$\SI{2}{\kelvin}$.
+זהו אומדן ניסויי לטמפרטורת קירי של הדגימה בשדה סופי, כלומר טמפרטורת חצי־גובה של דעיכת המגנוט ולא ערך תרמודינמי אידיאלי בשדה אפס.
 
 \begin{itemize}
-\item שלושת המדדים בסדרה~
+\item התצפית העיקרית: הלולאות נסגרות עם החימום, והתגובה נעשית כמעט לינארית מעל המעבר.
+\item שתי השיטות הישירות בסדרה~
 \textenglish{A}
-יורדים באותו תחום; שיטה~3 רגישה יותר לחלון זנב הרוויה.
-\item מקורות הטיה: השהיה וגרדיאנט תרמיים, חיסור רקע לינארי, חיתוך התייצבות, ובחירת חלון זנב.
+נותנות את אותו תחום מעבר; שיטה~3 נמוכה יותר ולכן משמשת בדיקת רגישות לחלון זנבות הרוויה.
+\item שינוי הזרם הראשוני משנה את פתיחת הלולאה ומזיז את חצי־הגובה בכמה קלווין; סדרה~
+\textenglish{C}
+חסרה תחום קר יציב ולכן אינה משמשת לאומדן המרכזי.
+\item מקורות הטיה עיקריים: השהיה וגרדיאנט תרמיים, חיסור רקע לינארי, חיתוך התייצבות, ובחירת חלון זנב.
 \item במדידה חוזרת: למדוד את גאומטריית הדגימה, לשפר הצמדה תרמית, לסרוק לאט יותר, לכסות תחום קר יציב בכל סדרה, ולכייל את ערוץ
 $B$
 עצמאית.
